@@ -37,7 +37,7 @@ end
 
 get '/logout' do
   session[:user_id] = nil
-  erb :index
+  redirect '/'
 end
 
 
