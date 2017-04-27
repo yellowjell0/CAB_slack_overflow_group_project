@@ -1,0 +1,36 @@
+<div>
+
+  <h1>Question</h1>
+  <!-- The question -->
+  <h2><%= @question.body%></h2>
+  <!-- The question comments -->
+  <ul>
+
+    <li><p>Question comments</p></li>
+    <li></li>
+    <%if user_logged_in %>
+    <input type="text" name="comment">
+    <button class="question-comment">add comment</button>
+    <% end %>
+  </ul>
+
+  <H2>Answers</H2>
+  <!-- The answers -->
+  <ul class="answers-list">
+    <% @question.answers.each do |answer| %>
+    <li><%=answer.body %></li>
+    <!-- The answer comments -->
+    <p>Answer comments LIST next dot</p>
+    <ul class="answer-comment-list">
+      <li></li>
+      <%if user_logged_in %>
+      <input type="text" name="comment">
+      <button class="answer-comment">add comment</button>
+      <% end %>
+    </ul>
+
+
+
+    <%end%>
+  </ul>
+</div>

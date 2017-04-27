@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include BCrypt
   has_many :questions
   has_many :answers
-  has_many :comments, as: :commentables
+  has_many :comments
 
   def password
     @password ||= BCrypt::Password.new(hashed_password)

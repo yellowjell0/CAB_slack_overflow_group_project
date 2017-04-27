@@ -29,3 +29,5 @@ get '/logout' do
   session[:user_id] = nil
   erb :index
 end
+
+
