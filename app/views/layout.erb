@@ -13,7 +13,16 @@
 
   <title>StackOverflow</title>
 </head>
+<nav>
+  <li><a href="/">Home</a></li>
+  <% if user_logged_in %>
+    <li><a href="/user"><%= @user.user_name %></a></li>
+  <% else %>
+    <li><a href="/login">Log In</a></li>
+    <li><a href="/sign_up">Sign Up</a></li>
+  <% end %>
+</nav>
 <body>
-<%= yield %>
+  <%= yield %>
 </body>
 </html>
