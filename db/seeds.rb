@@ -1,5 +1,5 @@
 10.times do
-  user =User.create(user_name: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+  user =User.create(user_name: Faker::Name.name, email: Faker::Internet.email, hashed_password: 'password')
   5.times do
     question = Question.create(title: Faker::Lorem.sentence + "?", body: Faker::Lorem.sentence(5))
     user.questions << question
