@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
   include BCrypt
+
   has_many :questions
   has_many :answers
-  has_many :comments, as: :commentables
+  has_many :comments, as: :commentable
+
+
+  def reputation
+    answers.map(&:votes).count + questions.map(&:votes).count + comments.map(&:votes).count
+  end
 
   def password
     @password ||= BCrypt::Password.new(hashed_password)
@@ -19,4 +25,5 @@ class User < ActiveRecord::Base
       user.password == password
     end
   end
+
 end

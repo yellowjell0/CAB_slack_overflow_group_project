@@ -1,0 +1,22 @@
+<div class="user-profile">
+  <div class="user-votes"><%=@user.reputation%> Reputation
+  </div>
+  <h1 id="user-name"><%=@user.user_name%></h1>
+  <p class="description"><%=@user.description%></p>
+  <div class="user-creds">
+    <ul class="user-creds-list">
+      <li class="cred-li"><%=@user.questions.count%><br>questions</li>
+      <li class="cred-li"><%=@user.answers.count%><br>answers</li>
+      <li class="cred-li"><%=@user.comments.count%><br>comments</li><br><br>
+      <li>User since:<br><%=@user.created_at.strftime('%B %e %Y')%></li><br>
+      <li>Last Day Active:<br><%=@user.updated_at.strftime('%B %e %Y')%></li>
+    </ul>
+  </div>
+  <div class="posts-list">
+    <h2>Top Posts</h2>
+    <%@user.questions.each do |question|%>
+      <%=question.body%>
+    <%end%>
+  </div>
+  </div>
+</div>

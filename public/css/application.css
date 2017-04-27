@@ -9,3 +9,25 @@
   text-decoration: none;
   color: #444;
 }
+
+#user-name {
+  line-height: 28px;
+}
+
+.user-creds-list {
+  float: right;
+}
+
+.cred-li {
+  border-spacing: 10px;
+  display: inline-block;
+}
+
+.user-votes {
+  float: left;
+  padding: 2%;
+}
+
+.posts-list {
+  margin-right: 30%;
+}

@@ -17,10 +17,20 @@ post '/login' do
   user = User.find_by(email: email)
   if User.authenticate(email, password)
     session[:user_id] = user.id
-    redirect '/restricted'
+    redirect '/user/:user_name'
   else
     @error = "Invalid login!"
     erb :login
+  end
+end
+
+get '/user/:user_name' do
+  if session[:user_id] != nil
+    @user = User.find_by(id: session[:user_id])
+    params[:user_name] = @user.user_name
+    erb :'user-profile'
+  else
+    erb :restricted
   end
 end
 
