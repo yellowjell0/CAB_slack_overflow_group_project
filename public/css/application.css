@@ -12,6 +12,8 @@
   text-decoration: none;
   color: #444;
 }
+
+
 .headers a {
   text-decoration: none;
   color: #4f4f4f;
@@ -75,6 +77,30 @@
   vertical-align: top;
   padding: 10px;
   border: .5px solid #b7a96c;
+
+
+
+#user-name {
+  line-height: 28px;
+}
+
+.user-creds-list {
+  float: right;
+}
+
+.cred-li {
+  border-spacing: 10px;
+  display: inline-block;
+}
+
+.user-votes {
+  float: left;
+  padding: 2%;
+}
+
+.posts-list {
+  margin-right: 30%;
+
 }
 
 
