@@ -18,6 +18,11 @@
   text-decoration: none;
   color: #4f4f4f;
 }
+.logo {
+  float: left;
+  border: solid red;
+  margin: 3px;
+}
 .qs_page {
   margin-left: 15%;
   width: 70%;
@@ -100,7 +105,10 @@
 
 .posts-list {
   margin-right: 30%;
+}
 
+.under {
+  margin-top: 100px;
 }
 
 

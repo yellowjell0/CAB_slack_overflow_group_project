@@ -17,18 +17,15 @@
 
   <% if user_logged_in %>
     <li class="headers"><a href="/logout">Log Out</a></li>
-    <li class="headers"><a href="/user"><%= @user.user_name %></a></li>
+    <li class="headers"><a href="/user/<%=@user.user_name%>"><%= @user.user_name %></a></li>
   <% else %>
     <li class="headers"><a href="/login">Log In</a></li>
     <li class="headers"><a href="/sign_up">Sign Up</a></li>
   <% end %>
   <li class="headers"><a href="/">Home</a></li>
 </nav>
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Stackoverflow_icon.png" height="50">c a b <i><strong>overflow</strong></i>
 <body class="container">
-
-<body>
-
-  <%= yield %>
+    <%= yield %>
 </body>
 </html>
