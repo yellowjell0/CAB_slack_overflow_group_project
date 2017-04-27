@@ -1,7 +1,19 @@
 10.times do
-  User.create(user_name: Faker::Name.name, email: Faker::Internet.email, hashed_password: 'password')
-  Question.create(body: Faker::Lorem.sentence + "?", user_id: rand(1..10), comment_id: rand(1..10))
-  Answer.create(body: Faker::ChuckNorris.fact, comment_id: rand(1..10), user_id: rand(1..10))
-  Comment.create(body: Faker::ChuckNorris.fact, user_id: rand(1..10))
-  Vote.create(value: 1)
+  user =User.create(user_name: Faker::Name.name, email: Faker::Internet.email, hashed_password: 'password')
+  5.times do
+    question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.sentence(5))
+    user.questions << question
+
+    answer  = Answer.create(body: Faker::ChuckNorris.fact)
+    answer.user = User.find(rand(1..User.count))
+    question.answers << answer
+
+    comment = Comment.create(body: Faker::ChuckNorris.fact)
+    comment.user = User.find(rand(1..User.count))
+    question.comments << comment
+    answer.comments << comment
+  end
+  # Vote.create(value: 1)
+  #add to comment answer_id and question_id
 end
+binding.pry
