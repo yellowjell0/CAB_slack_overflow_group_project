@@ -14,15 +14,18 @@
   <title>StackOverflow</title>
 </head>
 <nav>
-  <li><a href="/">Home</a></li>
+
   <% if user_logged_in %>
-    <li><a href="/user"><%= @user.user_name %></a></li>
+    <li class="headers"><a href="/logout">Log Out</a></li>
+    <li class="headers"><a href="/user"><%= @user.user_name %></a></li>
   <% else %>
-    <li><a href="/login">Log In</a></li>
-    <li><a href="/sign_up">Sign Up</a></li>
+    <li class="headers"><a href="/login">Log In</a></li>
+    <li class="headers"><a href="/sign_up">Sign Up</a></li>
   <% end %>
+  <li class="headers"><a href="/">Home</a></li>
 </nav>
 <body>
+<h1>Welcome to StackOverflow</h1>
   <%= yield %>
 </body>
 </html>

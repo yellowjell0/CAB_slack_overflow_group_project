@@ -4,7 +4,7 @@ end
 
 post '/sign_up' do
   User.create(params)
-  redirect '/'
+  redirect '/login'
 end
 
 get '/login' do
@@ -14,10 +14,10 @@ end
 post '/login' do
   email = params[:email]
   password = params[:password]
-  user = User.find_by(user_name: user_name)
+  user = User.find_by(email: email)
   if User.authenticate(email, password)
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/restricted'
   else
     @error = "Invalid login!"
     erb :login
@@ -27,5 +27,5 @@ end
 
 get '/logout' do
   session[:user_id] = nil
-  redirect '/'
+  erb :index
 end

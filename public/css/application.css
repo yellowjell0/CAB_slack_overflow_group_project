@@ -1,3 +1,11 @@
 .red {
   color: red;
 }
+
+.headers {
+  margin-left: 25px;
+  float: right;
+  display: inline-block;
+  text-decoration: none;
+  color: #444;
+}

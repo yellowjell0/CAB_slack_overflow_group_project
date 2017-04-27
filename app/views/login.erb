@@ -1,8 +1,8 @@
-<form>
+<form action='/login' method='post'>
   <label>Email</label> <br>
-  <input type="email" name="email" placeholder="you@example.org">
+  <input type="email" name="email" placeholder="you@example.org"><br>
   <label>Password</label> <br>
-  <input type="password" name="password" placeholder="*******">
+  <input type="password" name="password" placeholder="*******"><br>
   <button>Log in</button>
   <div class="red"> <%= @error %> </div>
 </form>
