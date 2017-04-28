@@ -58,8 +58,30 @@ else
 
   else
      #redirect lamely
-   end
+  end
+end
 
- end
+  post '/question/:id/vote' do
+    question = Question.find(params[:id])
+    dir = params[:direction]
+
+    if request.xhr?
+      json votes: question.votes.count
+    else
+      redirect '/question/#{question.id}'
+    end
+  end
+
+  post '/answer/:id/vote' do
+    answer = Answer.find(params[:id])
+    dir = params[:direction]
+
+    if request.xhr?
+      json votes: answer.votes.count
+    else
+      redirect '/answer/#{answer.id}'
+    end
+  end
+
 
 

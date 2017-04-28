@@ -1,8 +1,14 @@
-<div>
 
+<div class="question-div">
+  <ul class="vote-buttons" data-id="<%= @question.id %>">
+    <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
+    <li id="vote-button-v-count"><%=@question.votes.count%></li>
+    <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
+  </ul>
   <h1>Question</h1>
   <!-- The question -->
-  <h2><%= @question.body%></h2>
+    <h2><%= @question.title%></h2>
+  <h3><%= @question.body%></h3>
   <!-- The question comments -->
   <p>Question comments</p>
   <ul class="question-comment-list">
@@ -16,13 +22,24 @@
     <button class="question-comment">add comment</button>
   </form>
   <% end %>
+</div>
+<!-- Answers -->
+<div class="answers-div">
 
-  <!-- Answers -->
+
   <H2>Answers</H2>
   <section class="some">
     <ul class='answers-list'>
       <%@question.answers.each do |answer| %>
+      <ul class="vote-buttons" data-id="<%= answer.id %>">
+        <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
+        <li id="vote-button-v-count"><%=answer.votes.count%></li>
+        <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
+      </ul>
       <li>
+
+
+
         <p>ANSWER: <%= answer.body%></p>
         <ul class="answer-comment-list">
           <%answer.comments.each do |comment| %>
