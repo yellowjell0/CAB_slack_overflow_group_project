@@ -13,6 +13,7 @@ end
 post '/question/:id/vote' do
   question = Question.find(params[:id])
   dir = params[:direction]
+
   if dir == "up"
   else
   end

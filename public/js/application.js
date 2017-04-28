@@ -50,23 +50,45 @@ $(document).ready(function() {
   })
 
 
-});
 
-$('.arrow').on('click', function(event) {
+$('.arrow-1').on('click', function(event) {
   event.preventDefault();
   var $arrow = $(this);
   var $id = $arrow.parent().parent().data('id');
   var data = {
     'direction': $arrow.data('direction'),
     'id': $id
-  }
+    }
+
   $.ajax ({
     method: 'post',
     url: '/question/' + $id + "/vote",
     data: data
   })
-  .done(function(response){
-    console.log("Hi")
-  });
+  // .done(function(response){
+
+  // });
 });
+
+// $('.arrow-2').on('click', function(event) {
+//   event.preventDefault();
+//   var $arrow = $(this);
+//   var $id = $arrow.parent().parent().data('id');
+//   var data = {
+//     'direction': $arrow.data('direction'),
+//     'id': $id
+//     }
+
+//     debugger;
+
+//   $.ajax ({
+//     method: 'post',
+//     url: '/question/' + $id + "/vote",
+//     data: data
+//   })
+//   // .done(function(response){
+
+//   // });
+// });
+
 })
