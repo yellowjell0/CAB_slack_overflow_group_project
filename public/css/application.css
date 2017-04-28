@@ -157,24 +157,25 @@ h2 {
   list-style: none;
   line-height: 300%;
   color: #005999;
+  text-decoration: none;
 }
 
 .time-ul {
-    columns: 1;
-    float: right;
-    color: #666666;
-    font-size: 12px;
-    padding: 2px;
-    text-align: right;
-    list-style: none;
+  columns: 1;
+  float: right;
+  color: #666666;
+  font-size: 12px;
+  padding: 2px;
+  text-align: right;
+  list-style: none;
 }
 
 .q-votes {
-    margin-right: .5%;
-    padding: 1%;
-    max-height: 1%;
-    background: #5fba7d;
-    color: white;
+  margin-right: .5%;
+  padding: 1%;
+  max-height: 1%;
+  background: #5fba7d;
+  color: white;
 }
 
 #activity {
@@ -196,4 +197,32 @@ h2 {
   float: right;
   text-decoration: none;
 }
+
+.vote-buttons {
+  float: left;
+  list-style: none;
+  margin-top: 10%;
+  margin-left: 10%
+}
+
+.question-area {
+  margin-top: 8%;
+  margin-right: 30%;
+  float: right;
+}
+
+.answers-area {
+  margin-left: 14%;
+}
+
+ul {
+  list-style: none;
+}
+
+#vote-button-v-count {
+  text-align: center;
+  font-size: 23px;
+  color: #666666;
+}
+
 

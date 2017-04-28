@@ -1,12 +1,26 @@
 require 'sinatra/json'
 get '/' do
-  @questions = Question.all.order(created_at: :desc)
+  @questions = Question.all.order(updated_at: :desc)
   erb :index
 end
 
 get '/question/:question_id' do
-   @question = Question.find(params[:question_id])
-   erb :q_aview
+  @question = Question.find(params[:question_id])
+  erb :q_aview
+end
+
+post '/question/:id/vote' do
+  question = Question.find(params[:id])
+  dir = params[:direction]
+  if dir == "up"
+  else
+  end
+
+  if request.xhr?
+    json votes: question.votes.count
+  else
+    redirect '/question/#{question.id}'
+  end
 end
 
 post '/add_com/:answer_id/' do
