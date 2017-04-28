@@ -3,7 +3,7 @@
   user = User.create(user_name: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 
   5.times do
-    question = Question.create(title: Faker::Lorem.sentence + "?", body: Faker::Lorem.sentence(5))
+    question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.sentence(5))
     user.questions << question
 
     answer  = Answer.create(body: Faker::ChuckNorris.fact)

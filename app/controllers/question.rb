@@ -8,5 +8,19 @@ post '/post_q' do
 end
 
 get '/update/:question_id' do
-  p params
+  @question = Question.find(params[:question_id])
+  erb :update
 end
+
+put '/update/:question_id' do
+  question = Question.find(params[:question_id])
+  question.update(params[:question])
+  redirect '/user/:user_name'
+end
+
+get '/delete/:question_id' do
+  question = Question.find(params[:question_id])
+  question.destroy
+  redirect '/user/:user_name'
+end
+

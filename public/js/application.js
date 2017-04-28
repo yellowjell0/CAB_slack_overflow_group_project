@@ -4,13 +4,13 @@ $(document).ready(function() {
   // when we try to bind to them
   $('form.add_q_com').on('submit',function(e){
     e.preventDefault();
-     var $form = $(this);
+    var $form = $(this);
 
-     $.ajax({
-       method: $form.attr('method'),
-       url: $form.attr('action'),
-       data: $form.serialize(),
-     })
+    $.ajax({
+     method: $form.attr('method'),
+     url: $form.attr('action'),
+     data: $form.serialize(),
+   })
     .done(function(resp) {
       $('.question-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
 
@@ -18,15 +18,15 @@ $(document).ready(function() {
     })
   });
 
-  $('form.add-com').on('submit',function(e) {
+  $('ul.answer-comment-list').on('submit','form.add-com',function(e) {
     e.preventDefault();
     var $form = $(this);
 
     $.ajax({
-       method: $form.attr('method'),
-       url: $form.attr('action'),
-       data: $form.serialize(),
-     })
+     method: $form.attr('method'),
+     url: $form.attr('action'),
+     data: $form.serialize(),
+   })
     .done(function(resp) {
       $('.answer-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
 
@@ -34,20 +34,39 @@ $(document).ready(function() {
     })
   });
 
-    $('.some').on('submit','form.add_answer', function(e) {
-      e.preventDefault();
-      var $form = $(this);
-      $.ajax({
-       method: $form.attr('method'),
-       url: $form.attr('action'),
-       data: $form.serialize()
-     })
-      .done(function(resp) {
+  $('.some').on('submit','form.add_answer', function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    $.ajax({
+     method: $form.attr('method'),
+     url: $form.attr('action'),
+     data: $form.serialize()
+   })
+    .done(function(resp) {
       $('.answers-list').children().last().append("<li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%=answer.id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
 
       console.log(resp['answer']);
-      })
     })
+  })
 
 
 });
+
+$('.arrow').on('click', function(event) {
+  event.preventDefault();
+  var $arrow = $(this);
+  var $id = $arrow.parent().parent().data('id');
+  var data = {
+    'direction': $arrow.data('direction'),
+    'id': $id
+  }
+  $.ajax ({
+    method: 'post',
+    url: '/question/' + $id + "/vote",
+    data: data
+  })
+  .done(function(response){
+    console.log("Hi")
+  });
+});
+})
