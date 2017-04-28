@@ -9,9 +9,9 @@
 
     <% @questions.each do |question| %>
       <li class="question_list">
-        <span class="info"><ul><li><%=question.votes.count%></li><li>votes</li> </ul></span>
-        <span class="info"><ul><li><%=question.answers.count%></li><li>answers</li> </ul></span>
-        <span class="info"><ul><li><%=rand(0..500)%></li><li>views</li> </ul></span>
+        <span class="info"><ul><li class="num"><%=count_votes(question)%></li><li>votes</li> </ul></span>
+        <span class="info"><ul><li class="num"><%=question.answers.count%></li><li>answers</li> </ul></span>
+        <span class="info"><ul><li class="num" ><%=rand(0..500)%></li><li>views</li> </ul></span>
         <a class="question" href="/question/<%=question.id%>"><%=question.title%></a>
         <div class="user_tag">created: <%="#{question.created_at.hour}:#{question.created_at.min}:#{question.created_at.sec}  #{question.created_at.month}/#{question.created_at.to_date.day}/#{question.created_at.to_date.year} "%> <a href="/user/<%=question.user.id%>"><%=question.user.user_name%></a> </div>
       </li>

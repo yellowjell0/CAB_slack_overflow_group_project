@@ -1,1 +1,19 @@
-<form action="/update/<%=@question.id%>"></form>
+<div class="create">
+  <div class="create_q">
+    <h1>Please be sure your that question follows the suggested guidelines before posting </h1>
+    <form method='post' action='/update/<%=@question.id%>'>
+    <input type="hidden" name="_method" value="put">
+      <label>Title: </label> <input class="q_title" type="text" name="question[title]" placeholder="<%=@question.title%>"><br>
+      <textarea rows="20" cols="80" name="question[body]" placeholder="<%=@question.body%>"></textarea><br>
+      <button class="button">Update</button>
+    </form>
+  </div>
+  <div class="q_guide">
+    <p>How to Ask</p>
+    <p>Is your question about programming?</p>
+    <p>We prefer questions that can be <i>answered<i>, not just discussed.</p>
+    <p>Provide details. Share your research.</p>
+  </div>
+</div>
+
+
