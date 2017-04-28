@@ -1,5 +1,6 @@
 require 'sinatra/json'
 get '/' do
+  @questions = Question.all.order(created_at: :desc)
   erb :index
 end
 
@@ -12,7 +13,6 @@ get '/question/:question_id' do
 
  erb :q_aview
 end
-
 
 post '/add_com/:answer_id/' do
   # params[:answer_id]
@@ -31,4 +31,5 @@ post '/add_com/:answer_id/' do
     #redirect lamely
   end
 end
+
 
