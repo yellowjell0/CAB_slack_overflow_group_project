@@ -7,7 +7,9 @@
   <ul>
 
     <li><p>Question comments</p></li>
-    <li></li>
+    <%@question.comments.each do |comment| %>
+    <li><%=comment.body%></li>
+    <% end %>
     <%if user_logged_in %>
     <input type="text" name="comment">
     <button class="question-comment">add comment</button>
@@ -22,11 +24,15 @@
     <!-- The answer comments -->
     <p>Answer comments LIST next dot</p>
     <ul class="answer-comment-list">
-      <li></li>
+      <%answer.comments.each do |comment| %>
+      <li><%=comment.body %></li>
       <%if user_logged_in %>
-      <input type="text" name="comment">
-      <button class="answer-comment">add comment</button>
+      <form class='add-com' action='/add_com/<%=answer.id%>/' method='post' >
+        <input type="text" name="comment">
+        <button class="answer-comment">add comment</button>
+      </form>
       <% end %>
+      <% end%>
     </ul>
 
 

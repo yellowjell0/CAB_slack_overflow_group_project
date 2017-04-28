@@ -1,5 +1,5 @@
 10.times do
-  user =User.create(user_name: Faker::Name.name, email: Faker::Internet.email, hashed_password: 'password')
+  user = User.create(user_name: Faker::Name.name, email: Faker::Internet.email, password: 'password')
   5.times do
     question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.sentence(5))
     user.questions << question
@@ -10,10 +10,11 @@
 
     comment = Comment.create(body: Faker::ChuckNorris.fact)
     comment.user = User.find(rand(1..User.count))
-    question.comments << comment
-    answer.comments << comment
+    question.comments << Comment.create(body: Faker::ChuckNorris.fact, user_id: rand(1..User.count))
+    answer.comments << Comment.create(body: Faker::ChuckNorris.fact, user_id: rand(1..User.count))
+
   end
+  user.save
   # Vote.create(value: 1)
   #add to comment answer_id and question_id
 end
-binding.pry
