@@ -27,16 +27,19 @@ end
 post '/add_com/:answer_id/' do
   user = User.find_by(id: session[:user_id])
   answer = Answer.find_by(id: params[:answer_id])
-
-  answer.comments << Comment.create(body: params[:comment] )
+  comment = Comment.create(body: params[:comment] )
+  answer.comments << comment
   # answer.save
+
   if request.xhr?
     # @user.comments.create(body: params[:comment])
+
     comment = params[:comment]
     json comment: comment
 
   else
-    #redirect lamely
+
+    redirect "/question/#{answer.question.id}"
   end
 end
 

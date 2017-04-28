@@ -9,7 +9,7 @@ $(document).ready(function() {
     $.ajax({
      method: $form.attr('method'),
      url: $form.attr('action'),
-     data: $form.serialize(),
+     data: $form.serialize()
    })
     .done(function(resp) {
       $('.question-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
@@ -18,16 +18,16 @@ $(document).ready(function() {
     })
   });
 
-  $('ul.answer-comment-list').on('submit','form.add-com',function(e) {
+  $('div.answers-area').on('submit','form.add-com',function(e){
     e.preventDefault();
     var $form = $(this);
-
     $.ajax({
      method: $form.attr('method'),
      url: $form.attr('action'),
-     data: $form.serialize(),
+     data: $form.serialize()
    })
     .done(function(resp) {
+
       $('.answer-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
 
       console.log(resp['comment']);
