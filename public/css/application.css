@@ -240,3 +240,18 @@ ul {
   color: #666666;
 }
 
+.login {
+  padding: 70px;
+  width: 300px;
+  border: 1px solid gray;
+  margin: 0 auto;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.login input {
+  padding: 2%;
+  margin: 5%;
+}
+.login button {
+  float: right;
+}
