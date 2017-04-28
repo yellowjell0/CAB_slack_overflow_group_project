@@ -1,7 +1,7 @@
 require 'sinatra/json'
 
 get '/' do
-  @questions = Question.all.order(updated_at: :desc)
+  @questions = Question.all.order(updated_at: :desc).limit(10)
   erb :index
 end
 

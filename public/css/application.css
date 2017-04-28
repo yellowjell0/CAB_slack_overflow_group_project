@@ -11,6 +11,7 @@
   display: inline-block;
   text-decoration: none;
   color: #444;
+  font-size: .9em;
 }
 
 
@@ -20,8 +21,10 @@
 }
 .logo {
   float: left;
-  border: solid red;
   margin: 3px;
+}
+.logo_words {
+  font-size: 18pt;
 }
 .qs_page {
   margin-left: 15%;
@@ -48,9 +51,11 @@
 
 .info li {
   list-style-type: none;
-  font-size: .7em;
+  font-size: .8em;
   color: gray;
+  text-align: center;
 }
+
 .button {
   background-color: #128aeb;
   color: white;
