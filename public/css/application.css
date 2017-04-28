@@ -5,6 +5,14 @@
   color: red;
 }
 
+.top {
+  border-top: 2px solid #f0771f;
+  padding:30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bababa;
+  background-color:#fffef9;
+}
+
 .headers {
   margin-left: 25px;
   float: right;
@@ -20,11 +28,12 @@
   color: #4f4f4f;
 }
 .logo {
-  float: left;
-  margin: 3px;
+  margin-left: 60px;
 }
+
 .logo_words {
   font-size: 18pt;
+  text-shadow: .2px .2px #7a7a7a;
 }
 .qs_page {
   margin-left: 15%;
@@ -255,3 +264,4 @@ ul {
 .login button {
   float: right;
 }
+
