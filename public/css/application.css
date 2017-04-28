@@ -62,7 +62,7 @@
   box-shadow: .5px .5px gray;
 }
 .q_title {
-  width: 50%;
+  width: 70%;
   padding: 2px;
   margin-bottom: 2%;
 }
@@ -111,4 +111,7 @@
   margin-top: 100px;
 }
 
+.create {
+  margin-top: 100px;
+}
 
