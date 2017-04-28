@@ -1,22 +1,28 @@
 <div class="user-profile">
-  <div class="user-votes"><%=@user.reputation%> Reputation
+  <div class="user-votes"><span class="rep-num"><%=@user.reputation%></span> <span class="rep">Reputation</span>
   </div>
+  <div class="user-info">
   <h1 id="user-name"><%=@user.user_name%></h1>
   <p class="description"><%=@user.description%></p>
+  </div>
   <div class="user-creds">
     <ul class="user-creds-list">
-      <li class="cred-li"><%=@user.questions.count%><br>questions</li>
-      <li class="cred-li"><%=@user.answers.count%><br>answers</li>
-      <li class="cred-li"><%=@user.comments.count%><br>comments</li><br><br>
-      <li>User since:<br><%=@user.created_at.strftime('%B %e %Y')%></li><br>
-      <li>Last Day Active:<br><%=@user.updated_at.strftime('%B %e %Y')%></li>
+      <li class="cred-li"><span class="stats"><%=@user.questions.count%></span><br><span class="words">questions</span></li>
+      <li class="cred-li"><span class="stats"><%=@user.answers.count%></span><br><span class="words">answers</span></li>
+      <li class="cred-li"><span class="stats"><%=@user.comments.count%></span><br><span class="words">comments</span></li><br><br>
+    </ul>
+    <ul class="time-ul">
+      <li class="time">User since:  <%=@user.created_at.strftime('%B %e %Y')%></li>
+      <li class="time">Last Day Active:  <%=@user.updated_at.strftime('%B %e %Y')%></li>
     </ul>
   </div>
-  <div class="posts-list">
-    <h2>Top Posts</h2>
-    <%@user.questions.each do |question|%>
-      <%=question.body%>
+  <div class="posts-div">
+    <h2>Top Posts <span id="activity">(<%=@user.activity%>)</span></h2>
+    <ul class="posts-ul">
+     <%@user.questions.each do |question| %>
+        <li class="posts-li"><span class="q-votes"><%=question.votes.count%></span><%=question.body%></li> <hr>
     <%end%>
+    </ul>
   </div>
   </div>
 </div>

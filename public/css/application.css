@@ -82,28 +82,102 @@
   vertical-align: top;
   padding: 10px;
   border: .5px solid #b7a96c;
+}
 
-
+.user-info {
+  float: left;
+  padding-top: 6%;
+  margin-left: 5%;
+}
 
 #user-name {
-  line-height: 28px;
+  font-size: 30px;
 }
 
-.user-creds-list {
-  float: right;
-}
-
-.cred-li {
-  border-spacing: 10px;
-  display: inline-block;
+h2 {
+  padding-bottom: 2%;
 }
 
 .user-votes {
   float: left;
-  padding: 2%;
+  padding: 4%;
+  padding-top: 14%;
+  max-height: 10px;
+  max-width: 10px;
 }
 
+.rep-num {
+  font-size: 25px;
+}
+
+
+.rep {
+  font-size: 13px;
+  color: #666666;
+}
+
+.posts-div {
+  padding-top: 10%;
+}
+
+.user-creds {
+  margin-right: 5%;
+  font-size: 23px;
+}
+
+.user-creds-list {
+  padding-top: 8%;
+}
+
+.stats {
+  font-weight: bolder;
+  padding-left: 50%;
+}
+
+.cred-li {
+  list-style: none;
+  border-spacing: 100px;
+  float: right;
+}
+
+
 .posts-list {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.words {
+  font-size: 11px;
+  color: gray;
+  padding: 10px;
+}
+
+.posts-li {
+  list-style: none;
+  line-height: 300%;
+  color: #005999;
+}
+
+.time-ul {
+    columns: 1;
+    float: right;
+    color: #666666;
+    font-size: 12px;
+    padding: 2px;
+    text-align: right;
+    list-style: none;
+}
+
+.q-votes {
+    margin-right: .5%;
+    padding: 1%;
+    max-height: 1%;
+    background: #5fba7d;
+    color: white;
+}
+
+#activity {
+  color: #666666;
   margin-right: 30%;
 }
 
