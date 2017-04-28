@@ -12,7 +12,7 @@
         <span class="info"><ul><li><%=question.votes.count%></li><li>votes</li> </ul></span>
         <span class="info"><ul><li><%=question.answers.count%></li><li>answers</li> </ul></span>
         <span class="info"><ul><li><%=rand(0..500)%></li><li>views</li> </ul></span>
-        <a class="question" href="/question/#{question.id}"><%=question.title%></a>
+        <a class="question" href="/question/<%=question.id%>"><%=question.title%></a>
       </li>
     <% end %>
   </ul>

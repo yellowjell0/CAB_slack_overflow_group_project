@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     answers.map(&:votes).count + questions.map(&:votes).count + comments.map(&:votes).count
   end
 
+  def activity
+    answers.count + questions.count + comments.count
+  end
+
   def password
     @password ||= BCrypt::Password.new(hashed_password)
   end
