@@ -18,8 +18,7 @@
   end
 
   user.save
-  # Vote.create(value: 1)
-  #add to comment answer_id and question_id
+
 end
 
 
