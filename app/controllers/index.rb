@@ -4,14 +4,11 @@ get '/' do
 end
 
 get '/question/:question_id' do
-#test one
-@question = Question.find(5)
-  #real one
- # @question = Question.find(params[:question_id])
-@question
-
+ @question = Question.find(params[:question_id])
  erb :q_aview
 end
+
+
 
 
 

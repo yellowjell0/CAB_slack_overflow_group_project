@@ -17,7 +17,7 @@
 
   <% if user_logged_in %>
     <li class="headers"><a href="/logout">Log Out</a></li>
-    <li class="headers"><a href="/user"><%= @user.user_name %></a></li>
+    <li class="headers"><a href="/user/<%=@user.user_name%>"><%= @user.user_name %></a></li>
   <% else %>
     <li class="headers"><a href="/login">Log In</a></li>
     <li class="headers"><a href="/sign_up">Sign Up</a></li>
