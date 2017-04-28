@@ -4,7 +4,20 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-  $('.answer-comment').on('click','answer-comment-list',function(e) {
+  $('ul.answer-comment-list').on('submit','form.add-com',function(e) {
     e.preventDefault();
-  })
+    var $form = $(this);
+
+    $.ajax({
+       method: $form.attr('method'),
+       url: $form.attr('action'),
+       data: $form.serialize(),
+     })
+    .done(function(resp) {
+      // $('.answer-comment-list').children().append(resp);
+
+      console.log(resp['comment']);
+    })
+  });
+
 });
