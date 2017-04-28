@@ -43,14 +43,16 @@ $(document).ready(function() {
      data: $form.serialize()
    })
     .done(function(resp) {
-      $('.answers-list').children().last().append("<li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%=answer.id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
+
+      $('.answers-list').children().last().append("<ul class='vote-buttons' data-id=" + resp['answer'] + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%="+resp['answer']+".id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
+
+
 
       console.log(resp['answer']);
     })
   })
 
 
-});
 
 $('.arrow').on('click', function(event) {
   event.preventDefault();
