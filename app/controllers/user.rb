@@ -27,6 +27,7 @@ end
 get '/user/:user_name' do
   if session[:user_id] != nil
     @user = User.find_by(id: session[:user_id])
+    @questions = @user.questions.order(updated_at: :desc)
     params[:user_name] = @user.user_name
     erb :'user-profile'
   else

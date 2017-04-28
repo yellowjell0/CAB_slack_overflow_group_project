@@ -5,12 +5,21 @@
   color: red;
 }
 
+.top {
+  border-top: 3px solid #f0771f;
+  padding:30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bababa;
+  background-color:#fffef9;
+}
+
 .headers {
   margin-left: 25px;
   float: right;
   display: inline-block;
   text-decoration: none;
   color: #444;
+  font-size: .9em;
 }
 
 
@@ -19,9 +28,12 @@
   color: #4f4f4f;
 }
 .logo {
-  float: left;
-  border: solid red;
-  margin: 3px;
+  margin-left: 60px;
+}
+
+.logo_words {
+  font-size: 18pt;
+  text-shadow: .2px .2px #7a7a7a;
 }
 .qs_page {
   margin-left: 15%;
@@ -48,9 +60,11 @@
 
 .info li {
   list-style-type: none;
-  font-size: .7em;
+  font-size: .8em;
   color: gray;
+  text-align: center;
 }
+
 .button {
   background-color: #128aeb;
   color: white;
@@ -117,6 +131,7 @@ h2 {
 }
 
 .posts-div {
+  width: 90%;
   padding-top: 10%;
 }
 
@@ -156,24 +171,25 @@ h2 {
   list-style: none;
   line-height: 300%;
   color: #005999;
+  text-decoration: none;
 }
 
 .time-ul {
-    columns: 1;
-    float: right;
-    color: #666666;
-    font-size: 12px;
-    padding: 2px;
-    text-align: right;
-    list-style: none;
+  columns: 1;
+  float: right;
+  color: #666666;
+  font-size: 12px;
+  padding: 2px;
+  text-align: right;
+  list-style: none;
 }
 
 .q-votes {
-    margin-right: .5%;
-    padding: 1%;
-    max-height: 1%;
-    background: #5fba7d;
-    color: white;
+  margin-right: .5%;
+  padding: 1%;
+  max-height: 1%;
+  background: #5fba7d;
+  color: white;
 }
 
 #activity {
@@ -187,5 +203,65 @@ h2 {
 
 .create {
   margin-top: 100px;
+}
+
+.mods {
+  margin-top: 2%;
+  margin-right: 1%;
+  float: right;
+  text-decoration: none;
+}
+
+.user_tag {
+  padding-top: 1%;
+  margin-left: 75%;
+  font-size: .7em;
+  color: gray;
+}
+.user_tag a {
+  text-decoration: none;
+}
+
+.vote-buttons {
+  float: left;
+  list-style: none;
+  margin-top: 10%;
+  margin-left: 10%
+}
+
+.question-area {
+  margin-top: 8%;
+  margin-right: 30%;
+  float: right;
+}
+
+.answers-area {
+  margin-left: 14%;
+}
+
+ul {
+  list-style: none;
+}
+
+#vote-button-v-count {
+  text-align: center;
+  font-size: 23px;
+  color: #666666;
+}
+
+.login {
+  padding: 70px;
+  width: 300px;
+  border: 1px solid gray;
+  margin: 0 auto;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.login input {
+  padding: 2%;
+  margin: 5%;
+}
+.login button {
+  float: right;
 }
 
