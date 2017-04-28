@@ -20,7 +20,9 @@
     <h2>Top Posts <span id="activity">(<%=@user.activity%>)</span></h2>
     <ul class="posts-ul">
      <%@user.questions.each do |question| %>
-        <li class="posts-li"><span class="q-votes"><%=question.votes.count%></span><%=question.body%></li> <hr>
+        <li class="posts-li"><span class="q-votes"><%=question.votes.count%></span><%=question.body%></li>
+        <a href="/update/<%=question.id%>"> <span id="update-link">Update</span> </a>
+        <hr>
     <%end%>
     </ul>
   </div>

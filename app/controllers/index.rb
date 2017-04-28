@@ -5,13 +5,8 @@ get '/' do
 end
 
 get '/question/:question_id' do
-#test one
-@question = Question.find(5)
-  #real one
- # @question = Question.find(params[:question_id])
- @question
-
- erb :q_aview
+   @question = Question.find(params[:question_id])
+   erb :q_aview
 end
 
 post '/add_com/:answer_id/' do
@@ -31,5 +26,7 @@ post '/add_com/:answer_id/' do
     #redirect lamely
   end
 end
+
+
 
 
