@@ -5,12 +5,21 @@
   color: red;
 }
 
+.top {
+  border-top: 3px solid #f0771f;
+  padding:30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bababa;
+  background-color:#fffef9;
+}
+
 .headers {
   margin-left: 25px;
   float: right;
   display: inline-block;
   text-decoration: none;
   color: #444;
+  font-size: .9em;
 }
 
 
@@ -19,9 +28,12 @@
   color: #4f4f4f;
 }
 .logo {
-  float: left;
-  border: solid red;
-  margin: 3px;
+  margin-left: 60px;
+}
+
+.logo_words {
+  font-size: 18pt;
+  text-shadow: .2px .2px #7a7a7a;
 }
 .qs_page {
   margin-left: 15%;
@@ -48,9 +60,11 @@
 
 .info li {
   list-style-type: none;
-  font-size: .7em;
+  font-size: .8em;
   color: gray;
+  text-align: center;
 }
+
 .button {
   background-color: #128aeb;
   color: white;
@@ -198,6 +212,16 @@ h2 {
   text-decoration: none;
 }
 
+.user_tag {
+  padding-top: 1%;
+  margin-left: 75%;
+  font-size: .7em;
+  color: gray;
+}
+.user_tag a {
+  text-decoration: none;
+}
+
 .vote-buttons {
   float: left;
   list-style: none;
@@ -225,4 +249,19 @@ ul {
   color: #666666;
 }
 
+.login {
+  padding: 70px;
+  width: 300px;
+  border: 1px solid gray;
+  margin: 0 auto;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.login input {
+  padding: 2%;
+  margin: 5%;
+}
+.login button {
+  float: right;
+}
 

@@ -11,20 +11,21 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title>StackOverflow</title>
+  <title>CABOverflow</title>
 </head>
-<nav>
-
-  <% if user_logged_in %>
-    <li class="headers"><a href="/logout">Log Out</a></li>
-    <li class="headers"><a href="/user/<%=@user.user_name%>"><%= @user.user_name %></a></li>
-  <% else %>
-    <li class="headers"><a href="/login">Log In</a></li>
-    <li class="headers"><a href="/sign_up">Sign Up</a></li>
-  <% end %>
-  <li class="headers"><a href="/">Home</a></li>
-</nav>
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Stackoverflow_icon.png "height="50">c a b <i><strong>overflow</strong></i>
+<div class="top">
+  <nav>
+    <% if user_logged_in %>
+      <li class="headers"><a href="/logout">Log Out</a></li>
+      <li class="headers"><a href="/user/<%=@user.user_name%>"><%= @user.user_name %></a></li>
+    <% else %>
+      <li class="headers"><a href="/login">Log In</a></li>
+      <li class="headers"><a href="/sign_up">Sign Up</a></li>
+    <% end %>
+    <li class="headers"><a href="/">Home</a></li>
+  </nav>
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/81/Stackoverflow_icon.png" height="50"><span class="logo_words">c a b <i><strong>overflow</strong></i></span>
+</div>
 <body class="container">
     <%= yield %>
 </body>
