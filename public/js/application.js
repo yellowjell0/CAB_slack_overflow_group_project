@@ -9,7 +9,7 @@ $(document).ready(function() {
     $.ajax({
      method: $form.attr('method'),
      url: $form.attr('action'),
-     data: $form.serialize(),
+     data: $form.serialize()
    })
     .done(function(resp) {
       $('.question-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
@@ -18,16 +18,16 @@ $(document).ready(function() {
     })
   });
 
-  $('ul.answer-comment-list').on('submit','form.add-com',function(e) {
+  $('div.answers-area').on('submit','form.add-com',function(e){
     e.preventDefault();
     var $form = $(this);
-
     $.ajax({
      method: $form.attr('method'),
      url: $form.attr('action'),
-     data: $form.serialize(),
+     data: $form.serialize()
    })
     .done(function(resp) {
+
       $('.answer-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
 
       console.log(resp['comment']);
@@ -43,11 +43,15 @@ $(document).ready(function() {
      data: $form.serialize()
    })
     .done(function(resp) {
-      $('.answers-list').children().last().append("<li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%=answer.id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
+
+      $('.answers-list').children().last().append("<ul class='vote-buttons' data-id=" + resp['answer'] + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%="+resp['answer']+".id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
+
+
 
       console.log(resp['answer']);
     })
   })
+
 
 $('.arrow-1').on('click', function(event) {
   event.preventDefault();

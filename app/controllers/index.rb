@@ -33,16 +33,19 @@ end
 post '/add_com/:answer_id/' do
   user = User.find_by(id: session[:user_id])
   answer = Answer.find_by(id: params[:answer_id])
-
-  answer.comments << Comment.create(body: params[:comment] )
+  comment = Comment.create(body: params[:comment] )
+  answer.comments << comment
   # answer.save
+
   if request.xhr?
     # @user.comments.create(body: params[:comment])
+
     comment = params[:comment]
     json comment: comment
 
   else
-    #redirect lamely
+
+    redirect "/question/#{answer.question.id}"
   end
 end
 
@@ -73,9 +76,31 @@ else
 
   else
      #redirect lamely
-   end
+  end
+end
 
- end
+  post '/question/:id/vote' do
+    question = Question.find(params[:id])
+    dir = params[:direction]
+
+    if request.xhr?
+      json votes: question.votes.count
+    else
+      redirect '/question/#{question.id}'
+    end
+  end
+
+  post '/answer/:id/vote' do
+    answer = Answer.find(params[:id])
+    dir = params[:direction]
+
+    if request.xhr?
+      json votes: answer.votes.count
+    else
+      redirect '/answer/#{answer.id}'
+    end
+  end
+
 
 
 

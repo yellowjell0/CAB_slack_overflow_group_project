@@ -222,7 +222,7 @@ h2 {
   text-decoration: none;
 }
 
-.vote-buttons {
+/*.vote-buttons {
   float: left;
   list-style: none;
   margin-top: 10%;
@@ -247,7 +247,7 @@ ul {
   text-align: center;
   font-size: 23px;
   color: #666666;
-}
+}*/
 
 .login {
   padding: 70px;
