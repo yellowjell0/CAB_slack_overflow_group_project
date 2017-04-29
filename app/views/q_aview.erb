@@ -1,8 +1,10 @@
+
+
 <div class="question-div">
   <ul class="vote-buttons" data-id="<%= @question.id %>">
     <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
-    <li id="vote-button-v-count"><%=@question.votes.count%></li>
-    <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
+    <li id="vote-button-v-count-1"><%=UserHelper.count_votes(@question)%></li>
+    <li><input type="image" class="arrow-1" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
   </ul>
   <h1>Question</h1>
   <!-- The question -->
@@ -29,8 +31,8 @@
     <ul class='answers-list'>
       <%@question.answers.each do |answer| %>
       <ul class="vote-buttons" data-id="<%= answer.id %>">
-        <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
-        <li id="vote-button-v-count"><%=answer.votes.count%></li>
+        <li><input type="image" class="arrow-2" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
+        <li id="vote-button-v-count-2"><%=UserHelper.count_votes(answer)%></li>
         <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
       </ul>
       <li>
@@ -60,6 +62,5 @@
 </form>
 <% end %>
 </section>
-
 
 
