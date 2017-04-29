@@ -13,16 +13,22 @@ end
 post '/question/:id/vote' do
   question = Question.find(params[:id])
   dir = params[:direction]
-  if dir == "up"
-  else
+  if dir == 'up'
+    question.votes << Vote.create(v_type: "up", user_id: session[:user_id])
+  elsif dir == 'down'
+    question.votes << Vote.create(v_type: "down", user_id: session[:user_id])
   end
 
   if request.xhr?
-    json votes: question.votes.count
+    json count: UserHelper.count_votes(question)
   else
     redirect '/question/#{question.id}'
   end
 end
+
+
+
+
 
 post '/add_com/:answer_id/' do
   user = User.find_by(id: session[:user_id])

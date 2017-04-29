@@ -49,13 +49,11 @@ $(document).ready(function() {
     })
   })
 
-
-});
-
-$('.arrow').on('click', function(event) {
+$('.arrow-1').on('click', function(event) {
   event.preventDefault();
   var $arrow = $(this);
   var $id = $arrow.parent().parent().data('id');
+  var $votes = $('#vote-button-v-count-1')
   var data = {
     'direction': $arrow.data('direction'),
     'id': $id
@@ -66,7 +64,31 @@ $('.arrow').on('click', function(event) {
     data: data
   })
   .done(function(response){
-    console.log("Hi")
+    $votes.html(response.count);
   });
-});
+ });
+
+$('.arrow-2').on('click', function(event) {
+  event.preventDefault();
+  var $arrow = $(this);
+  var $id = $arrow.parent().parent().data('id');
+  var $votes = $('#vote-button-v-count-2')
+  var data = {
+    'direction': $arrow.data('direction'),
+    'id': $id
+  }
+  debugger;
+  $.ajax ({
+    method: 'post',
+    url: '/comment/' + $id + "/vote",
+    data: data
+  })
+  .done(function(response){
+    $votes.html(response.count);
+  });
+ });
 })
+
+
+
+

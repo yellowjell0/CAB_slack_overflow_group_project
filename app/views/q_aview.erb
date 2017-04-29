@@ -1,103 +1,16 @@
 
-<!-- The question -->
-<h2><%= @question.body%></h2>
-<!-- The question comments -->
-<p>Question comments</p>
-<ul class="question-comment-list">
-  <%@question.comments.each do |qcom| %>
-  <li><%=qcom.body%></li>
-  <% end %>
-</ul>
-<%if user_logged_in %>
-<form class="add_q_com" action="/add_q_com/<%=@question.id%>/" method="post">
-  <input type="text" name="comment">
-  <button class="question-comment">add comment</button>
-</form>
-<% end %>
-
-<!-- Answers -->
-<H2>Answers</H2>
-<section class="some">
-  <ul class='answers-list'>
-    <%@question.answers.each do |answer| %>
-    <li>
-      <p>ANSWER: <%= answer.body%></p>
-      <ul class="answer-comment-list">
-        <%answer.comments.each do |comment| %>
-        <li>
-          <p><%= comment.body %></p>
-        </li>
-
-        <ul class="vote-buttons" data-id="<%= @question.id %>">
-          <li><input type="image" class="arrow" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
-          <li id="vote-button-v-count"><%=@question.votes.count%></li>
-          <li><input type="image" class="arrow" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
-        </ul>
-
-        <div class="question-area">
-          <h1>Question</h1>
-          <h2><%= @question.body%></h2>
-          <!-- The question comments -->
-          <ul>
-            <%@question.comments.each do |comment| %>
-            <li><%=comment.body%></li>
-            <% end %>
-            <%if user_logged_in %>
-            <input type="text" name="comment">
-            <button class="question-comment">add comment</button>
-            <% end %>
-          </ul>
-        </div>
+        <!-- <ul class="vote-buttons" data-id="<%= @question.id %>">
+          <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
+          <li id="vote-button-v-count-1"><%=@question.votes.count%></li>
+          <li><input type="image" class="arrow-1" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
+        </ul> -->
 
 
-        <ul class="vote-buttons">
-          <li><input type="image" class="arrow" name="submit" src="/images/up-triangle.png" height="15px"></li>
-          <li id="vote-button-v-count"><%=@question.votes.count%></li>
-          <li><input type="image" class="arrow" name="submit" src="/images/down-triangle.png" height="15px"></li>
-        </ul>
 
-        <div class="answers-area">
-          <H2>Answers</H2>
-          <!-- The answers -->
-          <ul class="answers-list">
-            <% @question.answers.each do |answer| %>
-            <li><%=answer.body %></li>
-            <!-- The answer comments -->
-          </ul>
-          <ul class="answer-comment-list">
-            <%answer.comments.each do |comment| %>
-            <li><%=comment.body %></li>
-            <%if user_logged_in %>
-            <form class='add-com' action='/add_com/<%=answer.id%>/' method='post' >
-              <input type="text" name="comment">
-              <button class="answer-comment">add comment</button>
-            </form>
-            <% end %>
-            <% end%>
-          </ul>
-          <%end%>
-        </ul>
-      </div>
-      <% if user_logged_in %>
-      <form class="add-com" action="/add_com/<%=answer.id%>/" method="post">
-        <input type="text" name="comment">
-        <button class="answer-comment">add comment</button>
-      </form>
-      <% end %>
-    </li>
-    <%end%>
-    <%end%>
-
-  </ul>
-</ul>
-<% if user_logged_in %>
-<form class="add_answer" action="/add_answer/<%=@question.id%>/" method="post">
-  <textarea name='answer' rows="4" cols="50"></textarea>
-  <br>
-  <button class="add-answer">ADD ANSWER</button>
-</form>
-<% end %>
-</section>
-
+        <!-- <ul class="vote-buttons" data-id="<%= comment.id %>>
+          <li><input type="image" class="arrow-2" name="submit" src="/images/up-triangle.png" height="15px"></li>
+          <li id="vote-button-v-count-2"><%=@question.votes.count%></li>
+          <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px"></li>
+        </ul>  -->
 
 
