@@ -307,10 +307,12 @@ input {
   vertical-align: top;
 }
 #vote-button-v-count-2 {
-  padding-left: 25%;
+  width: 40px;
+  text-align: center;
 }
 #vote-button-v-count-1 {
-  padding-left: 10%;
+  width: 40px;
+  text-align: center;
 }
 .answer-comment-list {
   padding-left: 15px;
