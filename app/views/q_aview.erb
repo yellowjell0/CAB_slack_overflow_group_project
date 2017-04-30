@@ -1,13 +1,14 @@
 <div class="q_a_container">
   <div class="question-div">
+    <h1>Question</h1>
+    <hr>
+    <!-- The question -->
     <ul class="vote-buttons" data-id="<%= @question.id %>">
       <li><input type="image" class="arrow-1" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
       <li id="vote-button-v-count-1"><%=count_votes(@question)%></li>
       <li><input type="image" class="arrow-1" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
     </ul>
-    <h1 class="question-head">Question</h1>
-    <!-- The question -->
-      <h2><%= @question.title%></h2>
+      <h2 class="question-head"><%= @question.title%></h2>
     <h3 class="q_body"><%= @question.body%></h3>
     <hr>
     <!-- The question comments -->
@@ -33,7 +34,7 @@
         <%@question.answers.each do |answer| %>
         <ul class="vote-buttons" data-id="<%= answer.id %>">
           <li><input type="image" class="arrow-2" name="submit" src="/images/up-triangle.png" height="15px" data-direction="up"></li>
-          <li id="vote-button-v-count-2"><%=count_votes(answer)%></li>
+          <li class="a-<%=answer.id%>" id="vote-button-v-count-2"><%=count_votes(answer)%></li>
           <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
         </ul>
         <li class="a">

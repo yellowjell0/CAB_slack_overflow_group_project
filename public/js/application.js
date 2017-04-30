@@ -45,7 +45,7 @@ $(document).ready(function() {
     .done(function(resp) {
       var answer = JSON.parse(resp["answer"])
 
-      $('.answers-list').append("<ul class='vote-buttons' data-id=" + answer.id + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><div class='answers-area answer-"+answer.id+"'><p>ANSWER: "+answer.body+"</p><ul class='answer-comment-list'></ul><form class='add-com' action='/add_com/"+answer.id+"/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li></div>")
+      $('.answers-list').append("<ul class='vote-buttons' data-id=" + answer.id + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li class='a-" + answer.id + " id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><div class='answers-area answer-"+answer.id+"'><p>ANSWER: "+answer.body+"</p><ul class='answer-comment-list'></ul><form class='add-com' action='/add_com/"+answer.id+"/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li></div>")
       $("form textarea").val("")
 
 
@@ -69,7 +69,7 @@ $('.arrow-1').on('click', function(event) {
     data: data
   })
   .done(function(response){
-    $votes.html(response.count);
+    $("#vote-button-v-count-1").html(response.count)
   });
  });
 
@@ -82,14 +82,15 @@ $('.arrow-2').on('click', function(event) {
     'direction': $arrow.data('direction'),
     'id': $id
   }
-  debugger;
   $.ajax ({
     method: 'post',
-    url: '/comment/' + $id + "/vote",
+    url: '/answer/' + $id + "/vote",
     data: data
   })
   .done(function(response){
-    $votes.html(response.count);
+    answer = JSON.parse(response.answer)
+
+    $(".a-"+answer.id).html(response.votes)
   });
  });
 })
