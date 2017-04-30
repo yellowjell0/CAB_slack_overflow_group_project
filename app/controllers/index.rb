@@ -35,16 +35,10 @@ post '/add_com/:answer_id/' do
   answer = Answer.find_by(id: params[:answer_id])
   comment = Comment.create(body: params[:comment] )
   answer.comments << comment
-  # answer.save
-
   if request.xhr?
-    # @user.comments.create(body: params[:comment])
-
-    comment = params[:comment]
-    json comment: comment
+    json comment: comment.to_json
 
   else
-
     redirect "/question/#{answer.question.id}"
   end
 end
@@ -58,21 +52,19 @@ post '/add_q_com/:question_id/' do
   user.comments << Comment.create(body: params[:comment], user_id: user.id )
   comment = params[:comment]
   json comment: comment
-else
+  else
      #redirect lamely
-   end
+  end
  end
 
  post '/add_answer/:question_id/' do
    user = User.find_by(id: session[:user_id])
    question = Question.find_by(id: params[:question_id])
-   user.answers << Answer.create(body: params[:answer], user_id: user.id )
-   answer = params[:answer]
-
-   question.answers << Answer.create(body: answer , user_id: user.id)
+   answer = Answer.create(body: params[:answer], user_id: user.id )
+   user.answers << answer
+   question.answers << answer
    if request.xhr?
-
-    json answer: answer
+    json answer: answer.to_json
 
   else
      #redirect lamely

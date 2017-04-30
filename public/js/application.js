@@ -13,12 +13,12 @@ $(document).ready(function() {
    })
     .done(function(resp) {
       $('.question-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
-
+     $("form.add_q_com input").val("")
       console.log(resp['comment']);
     })
   });
 
-  $('div.answers-area').on('submit','form.add-com',function(e){
+  $('div.answers-div').on('submit','form.add-com',function(e){
     e.preventDefault();
     var $form = $(this);
     $.ajax({
@@ -27,14 +27,14 @@ $(document).ready(function() {
      data: $form.serialize()
    })
     .done(function(resp) {
-
-      $('.answer-comment-list').children().last().append("<li>"+resp['comment']+"</li>")
-
-      console.log(resp['comment']);
+      comment = JSON.parse(resp["comment"])
+      $('.answer-' + comment.commentable_id + ' .answer-comment-list').append("<li>"+comment.body+"</li>")
+      $("form input").val("")
+      console.log(resp['comment']);    
     })
   });
 
-  $('.some').on('submit','form.add_answer', function(e) {
+  $('.container').on('submit','form.add_answer', function(e) {
     e.preventDefault();
     var $form = $(this);
     $.ajax({
@@ -43,9 +43,10 @@ $(document).ready(function() {
      data: $form.serialize()
    })
     .done(function(resp) {
+      var answer = JSON.parse(resp["answer"])
 
-      $('.answers-list').children().last().append("<ul class='vote-buttons' data-id=" + resp['answer'] + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><p>ANSWER: "+resp['answer']+"</p><form class='add-com' action='/add_com/<%="+resp['answer']+".id%>/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li>")
-
+      $('.answers-list').append("<ul class='vote-buttons' data-id=" + answer.id + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><div class='answers-area answer-"+answer.id+"'><p>ANSWER: "+answer.body+"</p><ul class='answer-comment-list'></ul><form class='add-com' action='/add_com/"+answer.id+"/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li></div>")
+      $("form textarea").val("")
 
 
       console.log(resp['answer']);

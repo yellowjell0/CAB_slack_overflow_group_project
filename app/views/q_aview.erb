@@ -36,7 +36,7 @@
         <li><input type="image" class="arrow-2" name="submit" src="/images/down-triangle.png" height="15px" data-direction="down"></li>
       </ul>
       <li>
-    <div class="answers-area">
+    <div class="answers-area answer-<%=answer.id%>">
         <p>ANSWER: <%= answer.body%></p>
         <ul class="answer-comment-list">
           <%answer.comments.each do |comment| %>
@@ -50,7 +50,8 @@
             <input type="text" name="comment">
               <button class="answer-comment">add comment</button>
           </form>
-        <% end %>
+      </li>
+      <% end %>
     <%end%>
     </div>
   </ul>
