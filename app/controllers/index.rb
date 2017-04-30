@@ -20,7 +20,7 @@ post '/question/:id/vote' do
   end
 
   if request.xhr?
-    json count: UserHelper.count_votes(question)
+    json count: count_votes(question)
   else
     redirect '/question/#{question.id}'
   end
@@ -71,27 +71,22 @@ post '/add_q_com/:question_id/' do
   end
 end
 
-  post '/question/:id/vote' do
-    question = Question.find(params[:id])
-    dir = params[:direction]
 
-    if request.xhr?
-      json votes: question.votes.count
-    else
-      redirect '/question/#{question.id}'
-    end
+post '/answer/:id/vote' do
+  answer = Answer.find(params[:id])
+  dir = params[:direction]
+  if dir == 'up'
+    answer.votes << Vote.create(v_type: "up", user_id: session[:user_id])
+  elsif dir == 'down'
+    answer.votes << Vote.create(v_type: "down", user_id: session[:user_id])
   end
-
-  post '/answer/:id/vote' do
-    answer = Answer.find(params[:id])
-    dir = params[:direction]
-
-    if request.xhr?
-      json votes: answer.votes.count
-    else
-      redirect '/answer/#{answer.id}'
-    end
+  if request.xhr?
+    json votes: count_votes(answer), answer: answer.to_json 
+  else
+    redirect '/answer/#{answer.id}'
   end
+end
+
 
 
 

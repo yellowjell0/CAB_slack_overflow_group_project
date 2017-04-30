@@ -267,16 +267,23 @@ ul {
 .q_a_container {
   padding: 30px;
 }
+.arrow-2 {
+  width: 40px;
+}
+.arrow-1 {
+  width: 40px;
+}
 .vote-buttons {
   list-style-type: none;
   width: 5%;
+  padding-right: 10px;
   display: inline-block;
   padding-left: 0;
 }
 .question-head {
-  width: 70%;
   display: inline-block;
   vertical-align: top;
+  padding-top: 15px;
 }
 .q_body {
   padding-left: 40px;
@@ -301,17 +308,17 @@ input {
   height: 20px;
 }
 .a {
-  width: 93%;
+  width: 90%;
   display: inline-block;
   margin-bottom: 3%;
   vertical-align: top;
 }
 #vote-button-v-count-2 {
-  width: 40px;
+  width: 38px;
   text-align: center;
 }
 #vote-button-v-count-1 {
-  width: 40px;
+  width: 38px;
   text-align: center;
 }
 .answer-comment-list {
