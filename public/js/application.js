@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
   $('form.add_q_com').on('submit',function(e){
     e.preventDefault();
     var $form = $(this);
@@ -34,7 +31,7 @@ $(document).ready(function() {
     })
   });
 
-  $('.container').on('submit','form.add_answer', function(e) {
+  $('.q_a_container').on('submit','form.add_answer', function(e) {
     e.preventDefault();
     var $form = $(this);
     $.ajax({
@@ -45,7 +42,7 @@ $(document).ready(function() {
     .done(function(resp) {
       var answer = JSON.parse(resp["answer"])
 
-      $('.answers-list').append("<ul class='vote-buttons' data-id=" + answer.id + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li class='a-" + answer.id + " id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li><div class='answers-area answer-"+answer.id+"'><p>ANSWER: "+answer.body+"</p><ul class='answer-comment-list'></ul><form class='add-com' action='/add_com/"+answer.id+"/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li></div>")
+      $('.answers-list').append("<ul class='vote-buttons' data-id=" + answer.id + "<li><input type='image' class='arrow-1' name='submit' src='/images/up-triangle.png' height='15px' data-direction='up'></li><li class='a-" + answer.id + " id='vote-button-v-count'>0</li><li><input type='image' class='arrow-2' name='submit' src='/images/down-triangle.png' height='15px' data-direction='down'></li></ul><li class='a'><div class='answers-area answer-"+answer.id+"'><p>ANSWER: "+answer.body+"</p><ul class='answer-comment-list'></ul><form class='add-com' action='/add_com/"+answer.id+"/' method='post'><input type='text' name='comment'><button class='answer-comment'>add comment</button></form></li></div>")
       $("form textarea").val("")
 
 
